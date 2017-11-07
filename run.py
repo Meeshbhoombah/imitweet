@@ -19,3 +19,6 @@ def random_word():
     
     return random_word
 
+if __name__ == '__main__':
+    app.run(debug=True, use_reloader=True)
+
