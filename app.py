@@ -9,7 +9,7 @@ def hello():
 
 @app.route('/random/word')
 def random_word():
-    with open('gangja.txt', 'r') as f:
+    with open('ganja.txt', 'r') as f:
         words = f.read()
 
     words = words.split()
