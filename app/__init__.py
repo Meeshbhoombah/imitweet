@@ -14,3 +14,5 @@ app = Flask(__name__)
 app.config.from_object("app.configuration.DevelopmentConfig") # DEV
 # app.config.from_object("app.configuration.TestingConfig") # TESTING
 
+from app.src import dumper
+

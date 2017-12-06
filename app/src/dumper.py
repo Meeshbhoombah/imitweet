@@ -13,9 +13,18 @@ class Dumper(object):
 
     def __init__(self, handle):
         self.handle = handle
+        self.get_keys()
         self.api = self.authorize()
 
-    def authorize(self):
+    def get_keys(self):
+        """ Get Twitter credentials on server start """
+        key = input("ENTER CONSUMER KEY: ")
+        secret = input("ENTER CONSUMER SECRET: ")
+
+        os.environ["CONSUMER_KEY"] = key
+        os.environ["CONSUMER_SECRET"] = secret
+
+    def authorize(self): 
         consumer_key = os.environ.get("CONSUMER_KEY")
         consumer_secret = os.environ.get("CONSUMER_SECRET")
 
@@ -49,15 +58,4 @@ class Dumper(object):
             oldest = tweets[-1].id - 1
 
             print("... %s tweets downloaded so far" % (len(tweets)))
-
-
-if __name__ == "__main__":
-    """ Get Twitter credentials on server start """
-    
-    key = input("ENTER CONSUMER KEY: ")
-    secret = input("ENTER CONSUMER SECRET: ")
-
-    os.environ["CONSUMER_KEY"] = key
-    os.environ["CONSUMER_SECRET"] = secret
-    
 
